@@ -1,0 +1,11 @@
+export { default as Header } from "./Header";
+export { default as Footer } from "./Footer";
+export { default as Description } from "./Description";
+export { default as WhoInterested } from "./WhoInterested";
+export { default as AboutСonference } from "./AboutСonference";
+export { default as Hackathon } from "./Hackathon";
+export { default as Participate } from "./Participate";
+export { default as Schedule } from "./Schedule/Schedule";
+export { default as Partners } from "./Partners";
+export { default as Registration } from "./Registration";
+export { default as Map } from "./Map";
