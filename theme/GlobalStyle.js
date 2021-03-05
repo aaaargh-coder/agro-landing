@@ -18,7 +18,7 @@ export default createGlobalStyle`
     }
 
     @media(max-width: 425px) {
-      font-size: 8px;
+      font-size: 7px;
     }
   }
   
@@ -89,6 +89,10 @@ export default createGlobalStyle`
     white-space: nowrap;
     outline: none;
     cursor: pointer;
+
+    @media (max-width: 480px) {
+      padding: 12px 18px;
+    }
   }
 
   ul {

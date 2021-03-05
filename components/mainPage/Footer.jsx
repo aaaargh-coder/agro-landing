@@ -50,8 +50,10 @@ const Container = styled.div`
 
   > section {
     > div {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      display: flex;
+      justify-content: space-between;
+      gap: 3rem 10%;
+      flex-wrap: wrap;
 
       &:first-child > div:last-child {
         align-items: center;
@@ -61,6 +63,9 @@ const Container = styled.div`
         margin-top: 56px;
         opacity: 0.5;
       }
+    }
+    > div:last-of-type {
+      display: block;
     }
   }
 `;
@@ -94,9 +99,17 @@ const Text = styled.span`
 
 const Links = styled(Text)`
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   opacity: 1;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+
+    > span {
+      margin-bottom: 1rem;
+    }
+  }
 
   > span {
     display: flex;

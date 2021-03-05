@@ -75,6 +75,12 @@ const Title = styled.h1`
 const Cards = styled.div`
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+
+  @media (max-width: 1224px) {
+    justify-content: center;
+  }
 `
 
 const Card = styled.div`
@@ -96,6 +102,10 @@ const Content = styled.div`
   background-repeat: no-repeat;
   background-position: right bottom;
   background-size: 50%;
+
+  @media (max-width: 360px) {
+    min-height: 300px;
+  }
 `
 
 const Point = styled.li`

@@ -29,13 +29,6 @@ const Container = styled.div`
   background-size: 50%;
 `
 
-const Content = styled.div`
-  text-align: right;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-`
-
 const Title = styled.h1`
   max-width: 70%;
   font-size: 4.4rem; // TODO: из-за другого шрифта
@@ -44,3 +37,20 @@ const Title = styled.h1`
 const Text = styled.p`
   max-width: 50%;
 ` 
+
+const Content = styled.div`
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  
+  @media (max-width: 600px) {
+    ${Text} {
+      margin-top: 20%;
+      max-width: 100%;
+    }
+    ${Title} {
+      max-width: 100%;
+    }
+  }
+`

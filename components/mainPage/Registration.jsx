@@ -35,13 +35,11 @@ const Registration = () => {
     <Container>
       <h1>Регистрация</h1>
       <div>
-        <div>
-          <p>
+          <p css={` grid-area: text; `}>
             Регистрируйся и принимай участие в самом крупном агропромышленном
             мероприятии региона!
           </p>
           <Image />
-        </div>
         <Form>
           <form>
             <Input name="name" placeholder="Имя" />
@@ -91,13 +89,25 @@ const Registration = () => {
 export default Registration;
 
 const Container = styled.section`
+  padding: 0 2rem 15rem;
   display: flex;
   flex-direction: column;
   max-width: 1076px;
 
+  @media (max-width: 800px) {
+    > h1 {
+      text-align: center;
+    }
+  }
+
   > div {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px 1fr;
+    grid-template-areas:
+      "text form"
+      "img form"
+    ;
 
     > div {
       z-index: 1;
@@ -106,6 +116,18 @@ const Container = styled.section`
         color: #393e34;
       }
     }
+
+    @media (max-width: 800px) {
+      grid-template-areas:
+        "text"
+        "form"
+        "img"
+      ;
+      grid-template-rows: 100px 1fr 1fr;
+      justify-items: center;
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
   }
 `;
 
@@ -113,10 +135,12 @@ const Form = styled.div`
   max-width: 492px;
   width: 100%;
   z-index: 2;
+  grid-area: form;
 
   > form {
     display: flex;
     flex-direction: column;
+    
 
     > *:not(:last-child) {
       margin-bottom: 24px;
@@ -147,11 +171,12 @@ const Form = styled.div`
 `;
 
 const Image = styled.div`
+  grid-area: img;
   background-image: url("img/register.jpg");
   background-size: contain;
   background-repeat: no-repeat;
+  max-width: 100%;
   width: 100%;
-  height: 463px;
-  margin: 122px 0 0 -60px;
+  margin: 8rem 0 0 -60px;
   transform: scale(1.2);
 `;

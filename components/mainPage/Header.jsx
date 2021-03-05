@@ -9,18 +9,18 @@ const Header = () => {
   return (
     <Container>
       <section>
-        <Сontacts>
+        <Top>
           <AstralLogoIcon />
 
-          <div>
+          <Contacts>
             <span>
               agrodigital@astral.ru
             </span>
-            <span css={` margin-left: 4rem; `}>
+            <span>
               +7 (962) 174-49-99
             </span>
-          </div>
-        </Сontacts>
+          </Contacts>
+        </Top>
 
         <Info>
           <Description>Офлайн & Онлайн <span>Конференция</span></Description>
@@ -56,10 +56,26 @@ const Container = styled.div`
   background-size: cover;
 `
 
-const Сontacts = styled.div`
+const Contacts = styled.div`
+  display: flex;
+  gap: 4rem;
+`
+
+const Top = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+    align-items: flex-start;
+
+    > ${Contacts} {
+      margin-top: 2rem;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
 `
 
 const Info = styled.div`
@@ -110,10 +126,16 @@ const Addres = styled(Row)`
 
 const ButtonsGroup = styled.div`
   margin-top: 8rem;
+  display: flex;
+  gap: 1.2rem;
 
   > button:first-child {
-    margin-right: 1.2rem;
     background-color: var(--yellow);
     color: #312E2E;
+  }
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+    align-items: flex-start;
   }
 `

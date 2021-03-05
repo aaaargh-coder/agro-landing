@@ -94,7 +94,7 @@ const Cards = styled.div`
 
 const Card = styled.div`
   position: relative;
-  //min-height: 50.2rem;
+  min-height: 360px;
   width: 532px;
   background-repeat: no-repeat;
   background-position: center;
@@ -136,6 +136,11 @@ const Title = styled.div`
 `
 
 const LogoWrapper = styled.div`
+  @media (max-width: 400px) {
+    > svg {
+      transform: scale(0.75);
+    }
+  }
 `
 
 const Date = styled.div`
