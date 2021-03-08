@@ -41,6 +41,10 @@ const Container = styled.div`
       position: relative;
 
       > img {
+        @media (max-width: 800px) {
+          display: none;
+        }
+
         position: absolute;
         top: ${({ top }) => `${top}px`};
         right: ${({ right }) => `${right}px`};

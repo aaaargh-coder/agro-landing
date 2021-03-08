@@ -83,6 +83,10 @@ const TextField = styled(Input)`
   width: 32rem;
   margin-right: 2.8rem;
   background-color: white;
+
+  @media (max-width: 480px) {
+      height: 48px;
+    }
 `
 
 const StyledButton = styled(Button)`

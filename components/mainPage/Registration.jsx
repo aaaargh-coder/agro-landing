@@ -88,6 +88,18 @@ const Registration = () => {
 
 export default Registration;
 
+const Image = styled.div`
+  grid-area: img;
+  background-image: url("img/register.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  max-width: 100%;
+  width: 100%;
+  margin: 8rem 0 0 -60px;
+  transform: scale(1.2);
+`;
+
 const Container = styled.section`
   padding: 0 2rem 15rem;
   display: flex;
@@ -95,6 +107,8 @@ const Container = styled.section`
   max-width: 1076px;
 
   @media (max-width: 800px) {
+    padding-bottom: 8rem;
+
     > h1 {
       text-align: center;
     }
@@ -123,10 +137,15 @@ const Container = styled.section`
         "form"
         "img"
       ;
-      grid-template-rows: 100px 1fr 1fr;
+      grid-template-rows: 100px 1fr 240px;
       justify-items: center;
       grid-template-columns: 1fr;
       text-align: center;
+
+      ${Image} {
+        margin: 0;
+        margin-top: 40px;
+      }
     }
   }
 `;
@@ -168,15 +187,4 @@ const Form = styled.div`
       height: 76px;
     }
   }
-`;
-
-const Image = styled.div`
-  grid-area: img;
-  background-image: url("img/register.jpg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  max-width: 100%;
-  width: 100%;
-  margin: 8rem 0 0 -60px;
-  transform: scale(1.2);
 `;

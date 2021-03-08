@@ -29,6 +29,10 @@ const Container = styled.div`
   > div:nth-child(3) {
     padding-left: 42px;
   }
+
+  @media (max-width: 500px) {
+    grid-template-columns: 140px 1px 1.8fr 1fr;
+  }
 `;
 
 const Time = styled.div`
@@ -58,6 +62,10 @@ const Line = styled.div`
     width: 27px;
     height: 27px;
     border-radius: 50px;
+  }
+
+  @media (max-width: 500px) {
+    margin-top: 4px;
   }
 `;
 
