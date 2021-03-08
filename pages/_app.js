@@ -2,6 +2,8 @@ import Head from "next/head";
 import { UserAgentProvider } from "@quentin-sommer/react-useragent";
 import GlobalStyle from "theme/GlobalStyle";
 
+if (typeof global.navigator === 'undefined') global.navigator = {};
+
 const App = ({ Component, pageProps, ua }) => (
   <>
     <Head>
