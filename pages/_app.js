@@ -1,6 +1,8 @@
 import Head from "next/head";
 import GlobalStyle from "theme/GlobalStyle";
-import { ParallaxProvider } from 'react-scroll-parallax';
+import { ParallaxProvider } from 'react-scroll-parallax'
+
+if (!global.navigator) global.navigator = {}
 
 const App = ({ Component, pageProps }) => (
   <>
