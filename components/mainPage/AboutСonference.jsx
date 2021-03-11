@@ -5,6 +5,7 @@ import PlantIcon from 'icons/PlantIcon.svg'
 import ChatIcon from 'icons/ChatIcon.svg'
 import ElectronicBoardIcon from 'icons/ElectronicBoardIcon.svg'
 import CupIcon from 'icons/CupIcon.svg'
+import { ParallaxBanner } from 'react-scroll-parallax';
 
 const TOPICS = [
   {
@@ -31,7 +32,22 @@ const TOPICS = [
 
 const AboutСonference = () => {
   return (
-    <Container>
+    <StyledParallaxBanner
+      layers={[
+        {
+          image: '/img/aboutСonferenceBg.png',
+          amount: -0.1,
+          props: {
+            style: {
+              zIndex: -1,
+              backgroundPosition: 'bottom center',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'contain',
+            }
+          }
+        },
+      ]}
+    >
       <section>
         <Title>Что будет на конференции</Title>
         <Topics>
@@ -45,11 +61,21 @@ const AboutСonference = () => {
           }
         </Topics>
       </section>
-    </Container>
+    </StyledParallaxBanner>
   );
 };
 
 export default AboutСonference;
+
+const StyledParallaxBanner = styled(ParallaxBanner)`
+  padding-top: 10rem;
+  padding-bottom: 28rem; 
+
+  > section {
+    position: relative;
+    z-index: 1;
+  }
+`
 
 const Container = styled.div`
   padding-top: 10rem;

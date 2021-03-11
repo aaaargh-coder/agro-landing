@@ -4,11 +4,47 @@ import AstralLogoIcon from 'icons/AstralLogoIcon.svg';
 import CalendarIcon from 'icons/CalendarIcon.svg';
 import GeolocationIcon from 'icons/GeolocationIcon.svg';
 import { Button } from 'components/common';
+import { ParallaxBanner } from 'react-scroll-parallax';
 
 const Header = () => {
   return (
-    <Container>
-      <section>
+    <StyledParallaxBanner
+      layers={[
+        {
+          image: '/img/header.png',
+          amount: 0.3,
+          props: {
+            style: {
+              zIndex: -1,
+              height: '100%',
+              backgroundPosition: 'top center',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'cover',
+            }
+          }
+        },
+        {
+          image: '/img/copter.png',
+          amount: 0.4,
+          props: {
+            style: {
+              zIndex: -1,
+              left: 'auto',
+              right: '5%',
+              top: '20%',
+              width: '40%',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'top right',
+              backgroundSize: 'contain',
+            }
+          },
+        },
+      ]}
+      style={{
+        height: '1100px',
+      }}
+    >
+      <section css={` position: relative; z-index: 1; `}>
         <Top>
           <AstralLogoIcon />
 
@@ -28,8 +64,8 @@ const Header = () => {
           <Title>Цифровые сервисы в АПК</Title>
           <Instruction>Инструкция по применению </Instruction>
 
-          <Time><CalendarIcon /><b><span>18 марта 2021</span></b> <span>10:00 – 15:00</span></Time> {/* TODO: иконка */}
-          <Addres><GeolocationIcon /><span>Калуга, Циолковского д. 4</span></Addres> {/* TODO: иконка */}
+          <Time><CalendarIcon /><b><span>18 марта 2021</span></b> <span>10:00 – 15:00</span></Time>
+          <Addres><GeolocationIcon /><span>Калуга, Циолковского д. 4</span></Addres>
 
           <ButtonsGroup>
             <Button>
@@ -41,19 +77,15 @@ const Header = () => {
           </ButtonsGroup>
         </Info>
       </section>
-    </Container>
+    </StyledParallaxBanner>
   );
 };
 
 export default Header;
 
-const Container = styled.div`
+const StyledParallaxBanner = styled(ParallaxBanner)`
   padding-top: 5rem;
   padding-bottom: 15%;
-  background-image: url(/img/header.png); // TODO: header
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 `
 
 const Contacts = styled.div`

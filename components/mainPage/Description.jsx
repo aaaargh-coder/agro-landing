@@ -1,9 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Parallax } from 'react-scroll-parallax';
 
 const Description = () => {
   return (
     <Container>
+      <Parallax
+        x={[-25, 0]}
+      >
+        <ImgWrapper>
+          <img src='/img/digitalFlower.png' alt='Digital flower' />
+        </ImgWrapper>
+      </Parallax>
       <section>
         <Content>
           <Title>
@@ -21,22 +29,42 @@ const Description = () => {
 export default Description;
 
 const Container = styled.div`
+  position: relative;
   margin: 2rem 0;
   padding: 9rem 0;
-  background-image: url(/img/digitalFlower.png);
-  background-repeat: no-repeat;
-  background-position: left center;
-  background-size: 50%;
+`
+
+const ImgWrapper = styled.div`
+  position: absolute;
+  left: 0;
+  top: 50%;
+  max-width: 40%;
+
+  > img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 900px) {
+    margin-top: 5rem;
+  }
+
+  @media (max-width: 520px) {
+    margin-top: 12rem;
+  }
+  @media (max-width: 300px) {
+    margin-top: 18rem;
+  }
 `
 
 const Title = styled.h1`
   max-width: 70%;
-  font-size: 4.4rem; // TODO: из-за другого шрифта
+  font-size: 4.4rem;
 `
 
 const Text = styled.p`
   max-width: 50%;
-` 
+`
 
 const Content = styled.div`
   text-align: right;

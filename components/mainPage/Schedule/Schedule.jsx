@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Parallax } from 'react-scroll-parallax';
 
 import { WarningBanner } from "components/common";
 import Timeline from "./Timeline";
@@ -234,6 +235,13 @@ const SCHEDULE = [
 
 const Schedule = () => (
   <Container>
+    <StyledParallax
+      y={[200, -200]}
+    >
+      <DroneImageWrapper>
+        <img src='img/drone.png' alt='Drone' />
+      </DroneImageWrapper>
+    </StyledParallax>
     <section>
       <h1>Программа</h1>
       <WarningBanner text={WARNING_TEXT} />
@@ -251,20 +259,39 @@ const Schedule = () => (
 export default Schedule;
 
 const Container = styled.div`
+  position: relative;
   padding: 120px 0 35px 0;
-  background-image: url("img/drone.png");
-  background-repeat: no-repeat;
-  background-position: 100% 46%;
 
   > section {
     display: flex;
     flex-direction: column;
   }
-
-  @media (max-width: 1280px) {
-    background: none;
-  }
 `;
+
+const StyledParallax = styled(Parallax)`
+  position: absolute;
+  z-index: 10;
+  top: 42%;
+  left: auto;
+  right: -1%;
+
+  @media (max-width: 1140px) {
+    transform: scale(0.5);
+  }
+  @media (max-width: 500px) {
+    transform: scale(0.2);
+  }
+`
+
+const DroneImageWrapper = styled.div`  
+  display: flex;
+  justify-content: flex-end;
+
+  
+  @media (max-width: 900) {
+    transform: scale(0.5);
+  }
+`
 
 const TimelineWrapper = styled.div`
   display: grid;

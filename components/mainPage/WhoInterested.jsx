@@ -65,7 +65,7 @@ export default WhoInterested;
 const Container = styled.div`
   padding-top: 10rem;
   padding-bottom: 4rem;
-  background: rgba(196, 196, 196, 0.14); // TODO
+  background: rgba(196, 196, 196, 0.14);
 `
 
 const Title = styled.h1`

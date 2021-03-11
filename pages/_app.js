@@ -1,10 +1,8 @@
 import Head from "next/head";
-import { UserAgentProvider } from "@quentin-sommer/react-useragent";
 import GlobalStyle from "theme/GlobalStyle";
+import { ParallaxProvider } from 'react-scroll-parallax';
 
-if (typeof global.navigator === 'undefined') global.navigator = {};
-
-const App = ({ Component, pageProps, ua }) => (
+const App = ({ Component, pageProps }) => (
   <>
     <Head>
       <title>Астрал.Digital Agro</title>
@@ -66,9 +64,9 @@ const App = ({ Component, pageProps, ua }) => (
       />
     </Head>
     <GlobalStyle />
-    <UserAgentProvider ua={ua}>
+    <ParallaxProvider>
       <Component {...pageProps} />
-    </UserAgentProvider>
+    </ParallaxProvider>
   </>
 );
 
