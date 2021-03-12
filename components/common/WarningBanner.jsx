@@ -20,6 +20,8 @@ const Container = styled.div`
   height: 72px;
 
   > svg {
+    min-width: 36px;
+    height: auto;
     margin: 0 18px 0 26px;
   }
 

@@ -70,12 +70,16 @@ const Header = () => {
           <Addres><GeolocationIcon /><span>Калуга, Циолковского д. 4</span></Addres>
 
           <ButtonsGroup>
-            <Button>
-              Зарегистрироваться
-            </Button>
-            <Button>
-              Программа
-            </Button>
+            <a href='#registration'>
+              <Button>
+                Зарегистрироваться
+              </Button>
+            </a>
+            <a href='#schedule'>
+              <Button>
+                Программа
+              </Button>
+            </a>
           </ButtonsGroup>
         </Info>
       </section>
@@ -173,7 +177,7 @@ const ButtonsGroup = styled.div`
   display: flex;
   gap: 1.2rem;
 
-  > button:first-child {
+  > a:first-child > button {
     background-color: var(--yellow);
     color: #312E2E;
   }
@@ -181,5 +185,10 @@ const ButtonsGroup = styled.div`
   @media (max-width: 640px) {
     flex-direction: column;
     align-items: flex-start;
+    gap: 0;
+
+    > a:first-child > button {
+      margin-bottom: 1.2rem;
+    }
   }
 `

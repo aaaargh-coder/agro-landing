@@ -234,26 +234,28 @@ const SCHEDULE = [
 ];
 
 const Schedule = () => (
-  <Container>
-    <StyledParallax
-      y={[200, -200]}
-    >
-      <DroneImageWrapper>
-        <img src='img/drone.png' alt='Drone' />
-      </DroneImageWrapper>
-    </StyledParallax>
-    <section>
-      <h1>Программа</h1>
-      <WarningBanner text={WARNING_TEXT} />
-      <TimelineWrapper>
-        {SCHEDULE.map((props, index) => (
-          <Timeline key={index} {...props} />
-        ))}
-      </TimelineWrapper>
+  <a name='schedule'>
+    <Container>
+      <StyledParallax
+        y={[200, -200]}
+      >
+        <DroneImageWrapper>
+          <img src='img/drone.png' alt='Drone' />
+        </DroneImageWrapper>
+      </StyledParallax>
+      <section>
+        <h1>Программа</h1>
+        <WarningBanner text={WARNING_TEXT} />
+        <TimelineWrapper>
+          {SCHEDULE.map((props, index) => (
+            <Timeline key={index} {...props} />
+          ))}
+        </TimelineWrapper>
 
-      <WarningBanner text={WARNING_TEXT} />
-    </section>
-  </Container>
+        <WarningBanner text={WARNING_TEXT} />
+      </section>
+    </Container>
+  </a>
 );
 
 export default Schedule;
@@ -278,7 +280,9 @@ const StyledParallax = styled(Parallax)`
   @media (max-width: 1140px) {
     transform: scale(0.5);
   }
-  @media (max-width: 500px) {
+  @media (max-width: 1000px) {
+    left: -220px;
+    right: auto;
     transform: scale(0.2);
   }
 `

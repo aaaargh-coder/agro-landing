@@ -32,57 +32,59 @@ const Registration = () => {
   const setSelectValue = (value) => setSelect({ ...select, value });
 
   return (
-    <Container>
-      <h1>Регистрация</h1>
-      <div>
+    <a name='registration'>
+      <Container>
+        <h1>Регистрация</h1>
+        <div>
           <p css={` grid-area: text; `}>
             Регистрируйся и принимай участие в самом крупном агропромышленном
             мероприятии региона!
           </p>
           <Image />
-        <Form>
-          <form>
-            <Input name="name" placeholder="Имя" />
-            <div>
-              <Input name="email" type="email" placeholder="E-mail" />
-              <Input name="phone" type="tel" placeholder="Телефон" />
-            </div>
-            <div>
-              <Button
-                green
-                outlined
-                radio
-                selected={place === 1}
-                onClick={setOnlinePlace}
-              >
-                Online
+          <Form>
+            <form>
+              <Input name="name" placeholder="Имя" />
+              <div>
+                <Input name="email" type="email" placeholder="E-mail" />
+                <Input name="phone" type="tel" placeholder="Телефон" />
+              </div>
+              <div>
+                <Button
+                  green
+                  outlined
+                  radio
+                  selected={place === 1}
+                  onClick={setOnlinePlace}
+                >
+                  Online
               </Button>
-              <Button
-                green
-                outlined
-                radio
-                selected={place === 2}
-                onClick={setKalugaPlace}
-              >
-                В Калуге
+                <Button
+                  green
+                  outlined
+                  radio
+                  selected={place === 2}
+                  onClick={setKalugaPlace}
+                >
+                  В Калуге
               </Button>
-            </div>
-            <Select
-              placeholder="Выберите тип организации"
-              options={OPTIONS}
-              value={select.value}
-              expanded={select.expanded}
-              onClick={toggleExpanded}
-              onSelect={setSelectValue}
-            />
-            <Input name="comment" placeholder="Комментарий" />
-            <Button green onClick={(e) => e.preventDefault()}>
-              Отправить
+              </div>
+              <Select
+                placeholder="Выберите тип организации"
+                options={OPTIONS}
+                value={select.value}
+                expanded={select.expanded}
+                onClick={toggleExpanded}
+                onSelect={setSelectValue}
+              />
+              <Input name="comment" placeholder="Комментарий" />
+              <Button green onClick={(e) => e.preventDefault()}>
+                Отправить
             </Button>
-          </form>
-        </Form>
-      </div>
-    </Container>
+            </form>
+          </Form>
+        </div>
+      </Container>
+    </a>
   );
 };
 
