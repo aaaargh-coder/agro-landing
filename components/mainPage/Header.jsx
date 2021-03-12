@@ -16,6 +16,7 @@ const Header = () => {
           props: {
             style: {
               zIndex: -1,
+              marginTop: '20%',
               maxHeight: '100%',
               backgroundPosition: 'top center',
               backgroundRepeat: 'no-repeat',
