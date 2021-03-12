@@ -12,7 +12,7 @@ const CARDS = [
     bgImage: '/img/onlineRegisterBg.png',
     Logo: ZoomLogoIcon,
     title: <><LaptopIcon /> Online</>,
-    date: '18 марта',
+    date: '24 марта',
     time: '10:00-15:00 МСК',
     description: 'Онлайн-трансляция в Zoom, предварительная регистрация обязательна',
     addInformation: ''
@@ -21,7 +21,7 @@ const CARDS = [
     bgImage: '/img/offlineRegisterBg.png',
     Logo: AstralLogoIcon,
     title: <><GeolocationIcon /> В Калуге</>,
-    date: '18 марта',
+    date: '24 марта',
     time: '10:00-15:00 МСК',
     description: 'Место проведения: Калуга, Циолковского 4, конференц-зал ИТ-центра «Калуга Астрал»',
     addInformation: '* Регистрация на участников с 9:00 до 10:00'
