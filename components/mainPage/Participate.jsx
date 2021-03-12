@@ -15,7 +15,6 @@ const CARDS = [
     date: '24 марта',
     time: '10:00-15:00 МСК',
     description: 'Онлайн-трансляция в Zoom, предварительная регистрация обязательна',
-    addInformation: ''
   },
   {
     bgImage: '/img/offlineRegisterBg.png',
@@ -24,7 +23,6 @@ const CARDS = [
     date: '24 марта',
     time: '10:00-15:00 МСК',
     description: 'Место проведения: Калуга, Циолковского 4, конференц-зал ИТ-центра «Калуга Астрал»',
-    addInformation: '* Регистрация на участников с 9:00 до 10:00'
   },
 ]
 
@@ -42,9 +40,8 @@ const Participate = () => {
               date,
               time,
               description,
-              addInformation,
             }) => (
-              <Card style={{ backgroundImage: `url(${bgImage})` }}>
+              <Card key={description} style={{ backgroundImage: `url(${bgImage})` }}>
                 <CardContent>
                   <Row>
                     <Title>{title}</Title>
@@ -58,11 +55,11 @@ const Participate = () => {
                     {description}
                   </Description>
 
-                  {<p>{addInformation}</p>}
-
-                  <StyledButton>
-                    Регистрация <ArrowRight />
-                  </StyledButton>
+                  <a href='#registration' css={` margin-top: auto; `}>
+                    <StyledButton>
+                      Регистрация <ArrowRight />
+                    </StyledButton>
+                  </a>
                 </CardContent>
               </Card>
             ))
@@ -160,7 +157,6 @@ const Description = styled.p`
 `
 
 const StyledButton = styled(Button)`
-  margin-top: auto;
   align-self: flex-start;
   background-color: var(--yellow);
   color: #312E2E;

@@ -9,22 +9,27 @@ import { Parallax } from 'react-scroll-parallax';
 
 const TOPICS = [
   {
+    id: 1,
     Icon: BacteriumIcon,
     text: <p>Обсудим <b>современные цифровые технологии</b> и то, как они применяются в сельском хозяйстве</p>
   },
   {
+    id: 2,
     Icon: PlantIcon,
     text: <p>Расскажем о <b>реальном опыте</b>применения цифровых решенийи их экономической эффективности</p>
   },
   {
+    id: 3,
     Icon: ChatIcon,
     text: <p>Время для <b>нетворкинга</b> c представителями АПК, IT- компаний и профильных ведомств</p>
   },
   {
+    id: 4,
     Icon: ElectronicBoardIcon,
     text: <p>В рамках круглого стола ответим на вопросы об использовании новейших технологий: <b>искусственного интеллекта, дронов и роботов, интернета вещей</b></p>
   },
   {
+    id: 5,
     Icon: CupIcon,
     text: <p>Совместно сформируем пул актуальных задач для решения на <b>АгроХакатоне</b></p>
   },
@@ -42,8 +47,8 @@ const AboutСonference = () => {
         <Title>Что будет на конференции</Title>
         <Topics>
           {
-            TOPICS.map(({ Icon, text }) => (
-              <Topic>
+            TOPICS.map(({ id, Icon, text }) => (
+              <Topic key={id}>
                 <Icon />
                 {text}
               </Topic>

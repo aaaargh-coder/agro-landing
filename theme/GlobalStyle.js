@@ -105,4 +105,9 @@ export default createGlobalStyle`
     font-size: 1.8rem;
     line-height: 115%;
   }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 `;

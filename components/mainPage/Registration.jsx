@@ -3,17 +3,52 @@ import styled from "styled-components";
 
 import { Input, Select, Button } from "components/common";
 
-const OPTIONS = ["Первый тип", "Второй тип", "Третий тип"];
+const ORGANIZATION_TYPES = [
+  "Предприятие АПК",
+  "Разработчик ПО",
+  "Производитель оборудования",
+  "другое",
+];
 
 const INITIAL_SELECT = {
-  value: null,
+  value: ORGANIZATION_TYPES[0],
   expanded: false,
 };
 
+const FORM_FIELDS = {
+  name: {
+    name: 'name',
+    placeholder: 'Имя',
+    required: true
+  },
+  email: {
+    name: 'email',
+    type: 'email',
+    placeholder: 'E-mail',
+    required: true
+  },
+  phone: {
+    name: 'phone',
+    type: 'tel',
+    placeholder: 'Телефон',
+    required: true
+  },
+  comment: {
+    name: 'comment',
+    placeholder: 'Комментарий',
+    required: false
+  },
+}
+
+const PARTICIPATION_TYPE = [
+  'Офлайн',
+  'Онлайн',
+]
+
 const Registration = () => {
-  const [form, setForm] = useState({});
-  const [place, setPlace] = useState(null);
+  const [place, setPlace] = useState(1);
   const [select, setSelect] = useState(INITIAL_SELECT);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const setOnlinePlace = (e) => {
     e.preventDefault();
@@ -31,6 +66,39 @@ const Registration = () => {
 
   const setSelectValue = (value) => setSelect({ ...select, value });
 
+  const handleFormSubmit = (e) => {
+    setErrorMessage('')
+    e.preventDefault()
+
+    const form = e.currentTarget
+
+    const body = {}
+    let isError = false
+
+    Object.values(FORM_FIELDS).forEach(({ name, placeholder, required }) => {
+      const value = form[name].value
+
+      if (required && !value) {
+        isError = true
+        setErrorMessage(`Пожалуйста, заполните поле "${placeholder}"`)
+      }
+        
+      body[name] = value
+    })
+
+    if (isError) return
+
+    body.participationType = place === 2 ? PARTICIPATION_TYPE[0] : PARTICIPATION_TYPE[1]
+    body.organizationType = select.value
+
+    const res = fetch('/api/registration', {
+      method: 'POST',
+      body: JSON.stringify(body)
+    })
+
+    console.log(111, res)
+  }
+
   return (
     <a name='registration'>
       <Container>
@@ -42,11 +110,11 @@ const Registration = () => {
           </p>
           <Image />
           <Form>
-            <form>
-              <Input name="name" placeholder="Имя" />
+            <form onSubmit={handleFormSubmit}>
+              <Input {...FORM_FIELDS.name} />
               <div>
-                <Input name="email" type="email" placeholder="E-mail" />
-                <Input name="phone" type="tel" placeholder="Телефон" />
+                <Input {...FORM_FIELDS.email} />
+                <Input {...FORM_FIELDS.phone} />
               </div>
               <div>
                 <Button
@@ -57,7 +125,7 @@ const Registration = () => {
                   onClick={setOnlinePlace}
                 >
                   Online
-              </Button>
+                </Button>
                 <Button
                   green
                   outlined
@@ -66,21 +134,24 @@ const Registration = () => {
                   onClick={setKalugaPlace}
                 >
                   В Калуге
-              </Button>
+                </Button>
               </div>
               <Select
                 placeholder="Выберите тип организации"
-                options={OPTIONS}
+                options={ORGANIZATION_TYPES}
                 value={select.value}
                 expanded={select.expanded}
                 onClick={toggleExpanded}
                 onSelect={setSelectValue}
               />
-              <Input name="comment" placeholder="Комментарий" />
-              <Button green onClick={(e) => e.preventDefault()}>
+              <Input {...FORM_FIELDS.comment} />
+              <Button green type='submit'>
                 Отправить
-            </Button>
+              </Button>
             </form>
+            <ErrorMessage>
+              {errorMessage}
+            </ErrorMessage>
           </Form>
         </div>
       </Container>
@@ -190,3 +261,10 @@ const Form = styled.div`
     }
   }
 `;
+
+const ErrorMessage = styled.div`
+  margin-top: 1rem;
+  min-width: 4rem;
+  height: 2.8rem;
+  color: #ff0055;
+`

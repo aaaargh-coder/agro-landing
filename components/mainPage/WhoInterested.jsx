@@ -42,13 +42,13 @@ const WhoInterested = () => {
         <Cards>
           {
             INTERESTED_GROUPS.map(({ titleBackground, title, points, backgroundURL }) => (
-              <Card>
+              <Card key={title}>
                 <Header style={{ backgroundColor: titleBackground }}>
                   {title}
                 </Header>
                 <Content style={{ backgroundImage: `url(${backgroundURL})` }}>
                   <ul>
-                    {points.map(text => <Point>{text}</Point>)}
+                    {points.map(text => <Point key={text}>{text}</Point>)}
                   </ul>
                 </Content>
               </Card>

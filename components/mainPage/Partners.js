@@ -49,7 +49,7 @@ const Partners = () => {
       <Title> Наши партнеры</Title>
       <Content>
         {PARTNERS.map(({ bgImage, name }) => (
-          <Partner>
+          <Partner key={bgImage}>
             <img src={bgImage} alt="Partner icon" />
             <p>{name}</p>
           </Partner>

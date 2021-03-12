@@ -18,7 +18,7 @@ const Select = ({
     </Button>
     <List expanded={expanded}>
       {options.map((option) => (
-        <Li onClick={() => onSelect(option)} selected={option === value}>
+        <Li key={option} onClick={() => onSelect(option)} selected={option === value}>
           {option}
         </Li>
       ))}
