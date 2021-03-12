@@ -5,7 +5,7 @@ import PlantIcon from 'icons/PlantIcon.svg'
 import ChatIcon from 'icons/ChatIcon.svg'
 import ElectronicBoardIcon from 'icons/ElectronicBoardIcon.svg'
 import CupIcon from 'icons/CupIcon.svg'
-import { ParallaxBanner } from 'react-scroll-parallax';
+import { Parallax } from 'react-scroll-parallax';
 
 const TOPICS = [
   {
@@ -32,22 +32,12 @@ const TOPICS = [
 
 const AboutСonference = () => {
   return (
-    <StyledParallaxBanner
-      layers={[
-        {
-          image: '/img/aboutСonferenceBg.png',
-          amount: -0.1,
-          props: {
-            style: {
-              zIndex: -1,
-              backgroundPosition: 'bottom center',
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: 'contain',
-            }
-          }
-        },
-      ]}
-    >
+    <Container>
+      <StyledParallax x={[-300, 0]}>
+        <NloImageWrapper>
+          <img src='/img/NLO.png' alt='nlo' />
+        </NloImageWrapper>
+      </StyledParallax>
       <section>
         <Title>Что будет на конференции</Title>
         <Topics>
@@ -61,29 +51,33 @@ const AboutСonference = () => {
           }
         </Topics>
       </section>
-    </StyledParallaxBanner>
+    </Container>
   );
 };
 
 export default AboutСonference;
 
-const StyledParallaxBanner = styled(ParallaxBanner)`
-  padding-top: 10rem;
-  padding-bottom: 28rem; 
-
-  > section {
-    position: relative;
-    z-index: 1;
-  }
-`
-
 const Container = styled.div`
+  position: relative;
   padding-top: 10rem;
   padding-bottom: 28rem; 
   background-image: url(/img/aboutСonferenceBg.png);
+  background-position: bottom center;
   background-repeat: no-repeat;
-  background-position: center bottom;
   background-size: contain;
+`
+
+const StyledParallax = styled(Parallax)`
+  position: absolute;
+  right: -50%;
+  bottom: 2rem;
+  max-width: 30%;
+`
+
+const NloImageWrapper = styled.div`
+  > img {
+    max-width: 100%;
+  }
 `
 
 const Title = styled.h1`

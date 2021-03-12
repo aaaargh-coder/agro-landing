@@ -90,7 +90,7 @@ export default Registration;
 
 const Image = styled.div`
   grid-area: img;
-  background-image: url("img/register.jpg");
+  background-image: url("img/register.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;

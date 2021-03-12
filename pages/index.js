@@ -1,6 +1,4 @@
-import { useContext } from "react";
-import styled from "styled-components";
-import { UAContext } from "@quentin-sommer/react-useragent";
+import React from 'react';
 
 import {
   Header,
@@ -16,12 +14,7 @@ import {
   Partners,
 } from "components";
 
-import { getDeviceByUserAgent } from "utils/common";
-
 export default function Home() {
-  //const { uaResults } = useContext(UAContext);
-  //const device = getDeviceByUserAgent(uaResults);
-
   return (
     <>
       <Header />

@@ -31,7 +31,11 @@ const Container = styled.div`
   }
 
   @media (max-width: 500px) {
-    grid-template-columns: 140px 1px 1.8fr 1fr;
+    grid-template-columns: 124px 1px 1.8fr 1fr;
+
+    div:nth-child(3) {
+    padding-left: 26px;
+  }
   }
 `;
 

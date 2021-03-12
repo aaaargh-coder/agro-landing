@@ -16,7 +16,7 @@ const Header = () => {
           props: {
             style: {
               zIndex: -1,
-              height: '100%',
+              maxHeight: '100%',
               backgroundPosition: 'top center',
               backgroundRepeat: 'no-repeat',
               backgroundSize: 'cover',
@@ -25,13 +25,14 @@ const Header = () => {
         },
         {
           image: '/img/copter.png',
-          amount: 0.4,
+          amount: 0.5,
           props: {
+            className: 'headerDrone',
             style: {
               zIndex: -1,
               left: 'auto',
-              right: '5%',
-              top: '20%',
+              right: '1%',
+              top: '0',
               width: '40%',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'top right',
@@ -41,7 +42,7 @@ const Header = () => {
         },
       ]}
       style={{
-        height: '1100px',
+        height: '600px',
       }}
     >
       <section css={` position: relative; z-index: 1; `}>
@@ -64,7 +65,7 @@ const Header = () => {
           <Title>Цифровые сервисы в АПК</Title>
           <Instruction>Инструкция по применению </Instruction>
 
-          <Time><CalendarIcon /><b><span>18 марта 2021</span></b> <span>10:00 – 15:00</span></Time>
+          <Time><CalendarIcon /><b><span>24 марта 2021</span></b> <span>10:00 – 15:00</span></Time>
           <Addres><GeolocationIcon /><span>Калуга, Циолковского д. 4</span></Addres>
 
           <ButtonsGroup>
@@ -86,6 +87,12 @@ export default Header;
 const StyledParallaxBanner = styled(ParallaxBanner)`
   padding-top: 5rem;
   padding-bottom: 15%;
+
+  @media (max-width: 700px) {
+    & .headerDrone {
+      top: 10% !important;
+    }
+  }
 `
 
 const Contacts = styled.div`
@@ -150,6 +157,10 @@ const Row = styled.div`
 
 const Time = styled(Row)`
   margin-top: 5.5rem;
+  
+  > span:last-child {
+    margin-left: 1rem;
+  }
 `
 
 const Addres = styled(Row)`

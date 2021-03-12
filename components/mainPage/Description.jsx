@@ -45,15 +45,11 @@ const ImgWrapper = styled.div`
     height: auto;
   }
 
-  @media (max-width: 900px) {
-    margin-top: 5rem;
-  }
-
-  @media (max-width: 520px) {
+  @media (max-width: 1100px) {
     margin-top: 12rem;
   }
-  @media (max-width: 300px) {
-    margin-top: 18rem;
+  @media (max-width: 400px) {
+    margin-top: 17rem;
   }
 `
 
